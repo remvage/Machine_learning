@@ -1,3 +1,7 @@
+import tensorflow as tf
+import numpy as np
+from tensorflow import keras
+
 # GRADED FUNCTION: house_model
 def house_model(y_new):
     xs = [[1],[2],[3],[4],[5],[6],[7]]
@@ -9,3 +13,6 @@ def house_model(y_new):
     model.compile(optimizer='adam', loss='mae', metrics=['mae'])
     model.fit(xs, ys, epochs=300)
     return model.predict(y_new)[0] 
+    
+prediction = house_model([7.0])
+print(prediction)
