@@ -1,0 +1,11 @@
+# GRADED FUNCTION: house_model
+def house_model(y_new):
+    xs = [[1],[2],[3],[4],[5],[6],[7]]
+    ys = [[1],[1.5],[2],[2.5],[3],[3.5],[4]]
+    model = keras.Sequential([
+        keras.layers.Dense(2, 'leaky_relu'),
+        keras.layers.Dense(1, 'relu')
+    ])
+    model.compile(optimizer='adam', loss='mae', metrics=['mae'])
+    model.fit(xs, ys, epochs=300)
+    return model.predict(y_new)[0] 
